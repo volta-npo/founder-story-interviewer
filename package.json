@@ -3,13 +3,14 @@
   "version": "3.0.0",
   "private": false,
   "type": "module",
-  "description": "Interview scripts and story extraction workflows for capturing a small business owner’s voice.",
+  "description": "Interview scripts and story extraction workflows for capturing a small business owner\u2019s voice.",
   "scripts": {
-    "test": "node --test",
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.js",
     "start": "python3 -m http.server 4173",
-    "validate": "node --test",
-    "certify": "node --test test/v3.test.js",
-    "test:all": "node --test"
+    "validate": "npm test",
+    "certify": "npm run build && node --test test/v3.test.js",
+    "test:all": "npm test"
   },
   "keywords": [
     "digital-equity",
@@ -22,14 +23,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/volta-npo/22-founder-story-interviewer.git"
+    "url": "git+https://github.com/volta-npo/founder-story-interviewer.git"
   },
-  "homepage": "https://volta-npo.github.io/22-founder-story-interviewer/",
+  "homepage": "https://volta-npo.github.io/founder-story-interviewer/",
   "bugs": {
-    "url": "https://github.com/volta-npo/22-founder-story-interviewer/issues"
+    "url": "https://github.com/volta-npo/founder-story-interviewer/issues"
   },
   "author": "Volta OSS Division <volta.npo@gmail.com>",
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "@types/node": "^24.0.0"
   }
 }
